@@ -12,14 +12,14 @@ test('"Password" field is visible on the "Login" page.', async ({ page }) => {
   
     // Expect a field "Password".
     await expect (page.getByRole('textbox', { name: 'Password' })).toBeVisible();
-  });
+});
 
 test('[Login] button is visible on the "Login" page', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/login');
     
     // Expect a [Login] button is visible.
     await expect(page.getByRole('button', { name: 'Login' })).toBeVisible();
-  });
+});
 
 test('Check that the message "You logged into a secure area!" appears after successfull login.', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/login');
@@ -30,7 +30,7 @@ test('Check that the message "You logged into a secure area!" appears after succ
     await page.getByRole('button', { name: 'Login' }).click();
     await page.waitForURL('https://the-internet.herokuapp.com/secure');
     await expect(page.locator('#flash')).toContainText(`You logged into a secure area!`);
-  });
+});
 
 test('Assert error message for empty "Username" field in "Login" form.', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/login');
@@ -40,7 +40,7 @@ test('Assert error message for empty "Username" field in "Login" form.', async (
     await page.getByRole('button', { name: 'Login' }).click();
     await page.waitForURL('https://the-internet.herokuapp.com/login');
     await expect(page.locator('#flash')).toContainText(`Your username is invalid!`);
-  });
+});
 
 test('Assert error message for empty "Password" field in "Login" form.', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/login');
@@ -50,9 +50,9 @@ test('Assert error message for empty "Password" field in "Login" form.', async (
     await page.getByRole('button', { name: 'Login' }).click();
     await page.waitForURL('https://the-internet.herokuapp.com/login');
     await expect(page.locator('#flash')).toContainText(`Your password is invalid!`);
-  });
+});
 
-  test('User is not able to log in by entering invalid Username and valid Password.', async ({ page }) => {
+test('User is not able to log in by entering invalid Username and valid Password.', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/login');
     
     // Expect failed login.
@@ -61,9 +61,9 @@ test('Assert error message for empty "Password" field in "Login" form.', async (
     await page.getByRole('button', { name: 'Login' }).click();
     await page.waitForURL('https://the-internet.herokuapp.com/login');
     await expect(page.locator('#flash')).toContainText(`Your username is invalid!`);
-  });
+});
 
-  test('User is not able to log in by entering invalid Username and valid Password.', async ({ page }) => {
+test('User is not able to log in by entering invalid Username and valid Password.', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/login');
     
     // Expect failed login.
@@ -72,4 +72,4 @@ test('Assert error message for empty "Password" field in "Login" form.', async (
     await page.getByRole('button', { name: 'Login' }).click();
     await page.waitForURL('https://the-internet.herokuapp.com/login');
     await expect(page.locator('#flash')).toContainText(`Your password is invalid!`);
-  });
+});
