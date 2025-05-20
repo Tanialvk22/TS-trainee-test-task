@@ -14,7 +14,7 @@ test('"Login" page displays the "Username" field, the "Password" field, and the 
   await expect(page.getByRole('button', { name: 'Login' })).toBeVisible();
 });
 
-test('Check that the message "You logged into a secure area!" appears after successfull login.', async ({ page }) => {
+test('Assert the message "You logged into a secure area!" appears after successfull login.', async ({ page }) => {
     
     // Expect message after successfull login.
     await page.getByRole('textbox', { name: 'Username' }).fill('tomsmith');
