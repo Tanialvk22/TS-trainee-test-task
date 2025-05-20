@@ -7,9 +7,9 @@ test.beforeEach(async ({ page }) => {
 test('"Login" page displays the "Username" field, the "Password" field, and the [Login] button.', async ({ page }) => {
 
   // Expect a field "Username" is visible.
-  await expect (page.getByRole('textbox', { name: 'Username' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: 'Username' })).toBeVisible();
   // Expect a field "Password" is visible.
-  await expect (page.getByRole('textbox', { name: 'Password' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: 'Password' })).toBeVisible();
   // Expect a [Login] button is visible.
   await expect(page.getByRole('button', { name: 'Login' })).toBeVisible();
 });
